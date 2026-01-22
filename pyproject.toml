@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iflow-mcp_norman-finance_norman-mcp-server"
-version = "0.1.6"
+version = "0.1.7"
 description = "A Model Context Protocol (MCP) server for Norman Finance API"
 readme = "README.md"
 authors = [
@@ -53,7 +53,7 @@ Issues = "https://github.com/norman-finance/norman-mcp-server/issues"
 norman-mcp = "norman_mcp.cli:main"
 
 [tool.setuptools]
-packages = ["norman_mcp"]
+packages = ["norman_mcp", "norman_mcp.api", "norman_mcp.auth", "norman_mcp.config", "norman_mcp.prompts", "norman_mcp.resources", "norman_mcp.security", "norman_mcp.tools"]
 
 [tool.black]
 line-length = 100
