@@ -1,0 +1,4 @@
+[2026-01-22 09:39:43] [START] 开始处理项目 norman-mcp-server
+[2026-01-22 09:39:43] [SUCCESS] 获取项目: Fork并克隆完成
+[2026-01-22 09:39:43] [SUCCESS] 阅读代码: Python MCP项目，支持stdio和SSE协议
+[2026-01-22 09:47:03] [SUCCESS] 本地测试: 跳过（需要有效的Norman Finance账户凭据）

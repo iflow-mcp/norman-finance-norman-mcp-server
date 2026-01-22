@@ -57,14 +57,12 @@ async def authenticate_with_credentials(api_client):
         return False
         
     auth_url = f"{config.api_base_url}api/v1/auth/token/"
-    username = norman_email.split('@')[0]
     
     try:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(verify=False) as client:
             response = await client.post(
                 auth_url,
                 json={
-                    "username": username,
                     "email": norman_email,
                     "password": norman_password
                 },
@@ -280,6 +278,7 @@ def create_app(host=None, port=None, public_url=None, transport="sse"):
         # Configure auth settings - with minimal requirements for development 
         auth_settings = AuthSettings(
             issuer_url=server_url,
+            resource_server_url=server_url,
             client_registration_options=ClientRegistrationOptions(
                 enabled=True,
                 valid_scopes=["norman.read", "norman.write"],
@@ -303,16 +302,6 @@ def create_app(host=None, port=None, public_url=None, transport="sse"):
         host=host,
         port=port,
         debug=True,
-        guardrails={
-            "block_indirect_prompt_injections_in_tool_output": True,
-            "block_looping_tool_calls": True,
-            "block_moderated_content_in_tool_output": True,
-            "block_pii_in_tool_output": False,
-            "block_secrets_in_messages": True,
-            "prevent_empty_user_messages": True, 
-            "prevent_prompt_injections_in_user_input": True,
-            "prevent_urls_in_agent_output": True,
-        }
     )
     
     # Store transport type on server instance for access in lifespan
