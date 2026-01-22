@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iflow-mcp_norman-finance_norman-mcp-server"
-version = "0.1.7"
+version = "0.1.8"
 description = "A Model Context Protocol (MCP) server for Norman Finance API"
 readme = "README.md"
 authors = [
